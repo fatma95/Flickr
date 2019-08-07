@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import os.log
 
 class ViewController: UIViewController {
     
@@ -62,6 +63,7 @@ class ViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        os_log("View did load", log: OSLog.cycle, type: .info)
         registerCells()
     }
     
@@ -71,6 +73,7 @@ class ViewController: UIViewController {
     }
     
     fileprivate func resizeImage(image: UIImage, size: CGFloat) -> UIImage {
+        os_log("Image Resize %{Image}@  %{Size}@" , log: OSLog.data, type: .info, image, size)
         let rect = CGRect(x: 0.0, y: 0.0, width: size / 2, height: size / 2)
         let newSize = CGSize(width: size / 2, height: size / 2)
         UIGraphicsBeginImageContextWithOptions(newSize, false, 1.0)
